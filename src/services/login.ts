@@ -2,7 +2,7 @@ import request from '@/utils/request';
 import axios from 'axios';
 
 //let base_url = 'http://ec2-54-255-190-88.ap-southeast-1.compute.amazonaws.com:3000';
-let base_url = 'http://ec2-13-250-102-201.ap-southeast-1.compute.amazonaws.com:3000';
+let base_url = 'http://ec2-52-77-230-78.ap-southeast-1.compute.amazonaws.com:3000';
 let url_fragment = '/api/user/';
 // adding url's together
 base_url = base_url + url_fragment;

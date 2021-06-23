@@ -1,5 +1,5 @@
 import { InfoCircleOutlined } from '@ant-design/icons';
-import { Button, Card, DatePicker, Input, Form, InputNumber, Radio, Select, Tooltip } from 'antd';
+import { Button, Card, DatePicker, Input, Form, InputNumber, Radio, Select, Tooltip, Row } from 'antd';
 import type { Dispatch} from 'umi';
 import { connect, FormattedMessage, formatMessage } from 'umi';
 import type { FC } from 'react';
@@ -58,9 +58,21 @@ const BasicForm: FC<BasicFormProps> = (props) => {
     if (publicType) setShowPublicUsers(publicType === '2');
   };
 
+  const onNewUser = () => {
+    console.log("12345");
+  }
   return (
     <PageContainer content={<FormattedMessage id="formandbasic-form.basic.description" />}>
       <Card bordered={false}>
+        <Row>
+      <Row gutter={8}>
+    test 1
+</Row>
+<Row gutter={16}>
+  test2
+</Row>
+</Row>
+        <Row gutter={14}>
         <Form
           hideRequiredMark
           style={{ marginTop: 8 }}
@@ -71,6 +83,10 @@ const BasicForm: FC<BasicFormProps> = (props) => {
           onFinishFailed={onFinishFailed}
           onValuesChange={onValuesChange}
         >
+           <Button style={{ marginLeft: 8, float: 'right' }} onClick={onNewUser}>
+              <FormattedMessage id="formandbasic-form.form.save" />
+            </Button>
+
           <FormItem
             {...formItemLayout}
             label={<FormattedMessage id="formandbasic-form.title.label" />}
@@ -236,6 +252,8 @@ const BasicForm: FC<BasicFormProps> = (props) => {
             </Button>
           </FormItem>
         </Form>
+        </Row>
+       <p>asdasd</p>
       </Card>
     </PageContainer>
   );

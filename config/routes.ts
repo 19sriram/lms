@@ -56,6 +56,12 @@
                 component: './TableList',
               },
               {
+                name:'users.user-list',
+                icon: 'table',
+                path: '/users',
+                component: './UserList',
+              },
+              {
                 component: './404',
               },
             ],

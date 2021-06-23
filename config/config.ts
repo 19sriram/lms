@@ -130,6 +130,21 @@ export default defineConfig({
               ],
             },
             {
+              path: '/users',
+              icon:'table',
+              name:'Users',
+              routes: [
+                {
+                  
+                    path: '/',
+                    redirect: '/UserList',
+                    component: './UserList'
+                  
+                }
+              ]
+            },
+
+            {
               path: '/list',
               icon: 'table',
               name: 'list',

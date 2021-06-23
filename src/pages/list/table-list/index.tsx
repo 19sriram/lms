@@ -45,11 +45,11 @@ const handleUpdate = async (fields: FormValueType) => {
     });
     hide();
 
-    message.success('配置成功');
+    message.success('success');
     return true;
   } catch (error) {
     hide();
-    message.error('配置失败请重试！');
+    message.error('failed');
     return false;
   }
 };
@@ -60,18 +60,18 @@ const handleUpdate = async (fields: FormValueType) => {
  * @param selectedRows
  */
 const handleRemove = async (selectedRows: TableListItem[]) => {
-  const hide = message.loading('正在删除');
+  const hide = message.loading('loading');
   if (!selectedRows) return true;
   try {
     await removeRule({
       key: selectedRows.map((row) => row.key),
     });
     hide();
-    message.success('删除成功，即将刷新');
+    message.success('success');
     return true;
   } catch (error) {
     hide();
-    message.error('删除失败，请重试');
+    message.error('failed');
     return false;
   }
 };
@@ -85,14 +85,14 @@ const TableList: React.FC<{}> = () => {
   const [selectedRowsState, setSelectedRows] = useState<TableListItem[]>([]);
   const columns: ProColumns<TableListItem>[] = [
     {
-      title: '规则名称',
+      title: 'name',
       dataIndex: 'name',
-      tip: '规则名称是唯一的 key',
+      tip: 'name key',
       formItemProps: {
         rules: [
           {
             required: true,
-            message: '规则名称为必填项',
+            message: 'hi name',
           },
         ],
       },
@@ -101,19 +101,19 @@ const TableList: React.FC<{}> = () => {
       },
     },
     {
-      title: '描述',
+      title: 'desc',
       dataIndex: 'desc',
       valueType: 'textarea',
     },
     {
-      title: '服务调用次数',
+      title: 'call number',
       dataIndex: 'callNo',
       sorter: true,
       hideInForm: true,
       renderText: (val: string) => `${val} 万`,
     },
     {
-      title: '状态',
+      title: 'status',
       dataIndex: 'status',
       hideInForm: true,
       valueEnum: {
@@ -124,7 +124,7 @@ const TableList: React.FC<{}> = () => {
       },
     },
     {
-      title: '上次调度时间',
+      title: 'updated at',
       dataIndex: 'updatedAt',
       sorter: true,
       valueType: 'dateTime',
@@ -141,7 +141,7 @@ const TableList: React.FC<{}> = () => {
       },
     },
     {
-      title: '操作',
+      title: 'option',
       dataIndex: 'option',
       valueType: 'option',
       render: (_, record) => [
@@ -162,7 +162,7 @@ const TableList: React.FC<{}> = () => {
   return (
     <PageContainer>
       <ProTable<TableListItem>
-        headerTitle="查询表格"
+        headerTitle="headertitle"
         actionRef={actionRef}
         rowKey="key"
         search={{
@@ -199,7 +199,7 @@ const TableList: React.FC<{}> = () => {
           >
             批量删除
           </Button>
-          <Button type="primary">批量审批</Button>
+          <Button type="primary">submit</Button>
         </FooterToolbar>
       )}
       <CreateForm onCancel={() => handleModalVisible(false)} modalVisible={createModalVisible}>
